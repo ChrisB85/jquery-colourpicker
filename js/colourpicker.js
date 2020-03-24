@@ -273,10 +273,13 @@
       // Prevent text selection in IE
       input.closest('.colourpicker').find('.colourpicker-panel').on('selectstart', function() { return false; }).end();
 
-      if (input.data('value') === 'transparent') {
-          input.data('transparent', true); 
+      if (input.data('value') === undefined) {
+          input.data('value', input.val());
       }
 
+      if (input.data('value') === 'transparent') {
+          input.data('transparent', true);
+      }
       updateFromInput(input, false);
 
       input.data('colourpicker-initialized', true);
@@ -635,6 +638,7 @@
       if( input.data('colourpicker-initialized') ) {
         doChange(input, rgb, input.data('transparent'));
       }
+      console.log(input.data('transparent'));
       if( input.data('transparent') ) {
         colourpicker.find('.colourpicker-istransparent').prop('checked', true);
         colourpicker.addClass('istransparent');
