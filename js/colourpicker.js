@@ -119,6 +119,16 @@
             }
             return $(this);
 
+          // Set transparency
+          case 'transparent':
+              if( data === undefined ) {
+                  return $(this).data('transparent');
+              } else {
+                  $(this).data('transparent', data);
+                  updateFromInput($(this));
+              }
+            break;
+
           // Initializes the control
           default:
           if( method !== 'create' ) data = method;
