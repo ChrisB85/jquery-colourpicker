@@ -142,6 +142,7 @@
 
     // Initialize input elements
     function init(input, settings) {
+        
 
       var colourpicker = $('<div class="colourpicker" />'),
       inputcontainer = $('<div class="colourpicker-input-container" />'),
@@ -271,6 +272,10 @@
 
       // Prevent text selection in IE
       input.closest('.colourpicker').find('.colourpicker-panel').on('selectstart', function() { return false; }).end();
+
+      if (input.data('value') === 'transparent') {
+          input.data('transparent', true); 
+      }
 
       updateFromInput(input, false);
 
@@ -422,6 +427,7 @@
       gridPos = getCoords(gridPicker, grid),
       sliderPos = getCoords(sliderPicker, slider),
       alphaPos = getCoords(alphapicker,alphaslider);
+
 
       // Handle colors when there's a palette
       if( target.is('.colourpicker-grid, .colourpicker-slider, .colourpicker-alpha-slider') ) {
