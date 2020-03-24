@@ -638,7 +638,7 @@
       if( input.data('colourpicker-initialized') ) {
         doChange(input, rgb, input.data('transparent'));
       }
-      console.log(input.data('transparent'));
+
       if( input.data('transparent') ) {
         colourpicker.find('.colourpicker-istransparent').prop('checked', true);
         colourpicker.addClass('istransparent');
